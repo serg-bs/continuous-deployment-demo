@@ -28,7 +28,11 @@ try:
 except ImportError:
     from io import StringIO
 import sys
-import urllib2
+import urllib.request
+url = "https://api.github.com/users?since=100"
+request = urllib.request.Request(url)
+response = urllib.request.urlopen(request)
+data_content = response.read()
 import zipfile
 
 _SDK_URL = (
